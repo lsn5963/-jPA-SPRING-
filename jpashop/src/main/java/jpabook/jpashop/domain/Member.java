@@ -5,10 +5,7 @@ import jpabook.jpashop.domain.Order;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +19,10 @@ public class Member {
 
     private String username;
 
+    @Embedded
     private Address address;
 
+    @OneToMany(mappedBy = "member") //주인이 아니다.
     private List<Order> orders = new ArrayList<>();
 
 }
