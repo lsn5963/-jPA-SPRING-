@@ -20,7 +20,7 @@ public class Order {
     @JoinColumn(name = "member_id") // foreignkey가 member_id
     private Member member;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)   //order를 persist해주면 자동으로 같이 persist해줌
     private List<OrderItem> orderItems = new ArrayList<>();
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
