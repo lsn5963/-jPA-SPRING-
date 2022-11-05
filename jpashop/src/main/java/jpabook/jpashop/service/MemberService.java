@@ -33,11 +33,11 @@ public class MemberService {
         return member.getId();
     }
 
-    private void validateDuplicateMember(Member member) throws IllegalAccessException {
+    private void validateDuplicateMember(Member member) throws IllegalStateException {
         //EXCEPTION
         List<Member> findMembers = memberRepository.findByName(member.getName());
         if (!findMembers.isEmpty()){
-            throw  new IllegalAccessException("이미 존재하는 회원입니다.");
+            throw  new IllegalStateException("이미 존재하는 회원입니다.");
         }
     }
 
