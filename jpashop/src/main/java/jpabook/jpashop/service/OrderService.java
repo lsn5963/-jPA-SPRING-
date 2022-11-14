@@ -25,7 +25,7 @@ public class OrderService {
      * 주문
      */
     @Transactional
-    private Long order(Long memberId, Long itemId, int count){
+    public Long order(Long memberId, Long itemId, int count){
         //엔티티 조회
         Member member = memberRepository.findOne(memberId);
         Item item = itemRepository.findOne(itemId);
@@ -58,7 +58,7 @@ public class OrderService {
         //
     }
 
-    public List<Order> findOrders(OrderSearch orderSearch){
-        return orderRepository.findAll(orderSearch);
-    }
+//    public List<Order> findOrders(OrderSearch orderSearch){
+//        return orderRepository.findAll(orderSearch);
+//    }
 }
