@@ -25,7 +25,7 @@ public class MemberService {
 
     //회원가입
     @Transactional
-    public Long join(Member member) throws IllegalAccessException {
+    public Long join(Member member) {
         validateDuplicateMember(member);    //중복 회원 검증
 
         memberRepository.save(member);
@@ -33,7 +33,7 @@ public class MemberService {
         return member.getId();
     }
 
-    private void validateDuplicateMember(Member member) throws IllegalStateException {
+    private void validateDuplicateMember(Member member) {
         //EXCEPTION
         List<Member> findMembers = memberRepository.findByName(member.getName());
         if (!findMembers.isEmpty()){
